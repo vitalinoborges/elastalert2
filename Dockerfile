@@ -17,6 +17,7 @@ ARG UID=1000
 ARG USERNAME=elastalert
 
 COPY --from=builder /tmp/elastalert/dist/*.tar.gz /tmp/
+COPY --from=builder /tmp/elastalert/send_alert /usr/local/bin
 
 RUN apt update && apt -y upgrade && \
     apt -y install jq curl gcc libffi-dev && \

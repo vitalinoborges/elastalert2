@@ -1,0 +1,16 @@
+#!/bin/bash
+
+[[ "$#" -ne 2 ]] && exit 1
+
+alias="$1"
+apiKey="$2"
+
+curl -sX POST "https://api.opsgenie.com/v2/alerts/$alias/close?identifierType=alias" \
+    -H "Authorization: GenieKey $apiKey" \
+    -H "Content-Type: application/json" \
+    -d \
+'{
+    "user":"Monitoring Script",
+    "source":"AWS Lambda",
+    "note":"Fechado automaticamente pelo ElastAlert2"
+}'
