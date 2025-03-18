@@ -22,7 +22,7 @@ class OpsGenieAlerter(Alerter):
         self.teams = self.rule.get('opsgenie_teams')
         self.teams_args = self.rule.get('opsgenie_teams_args')
         self.tags = self.rule.get('opsgenie_tags', []) + ['ElastAlert', self.rule['name']]
-        self.to_addr = self.rule.get('opsgenie_addr', 'https://api.opsgenie.com/v2/alerts')
+        self.to_addr = self.rule.get('opsgenie_addr', 'https://api.atlassian.com/jsm/ops/integration/v2/alerts')
         self.description = self.rule.get('opsgenie_description', None)
         self.custom_message = self.rule.get('opsgenie_message')
         self.opsgenie_subject = self.rule.get('opsgenie_subject')
